@@ -16,6 +16,7 @@ final int end=2;
 Font titlefont;
 int currentState=menu;
 Timer framerate;
+Dinosaur dino =new Dinosaur(200, 295, 50, 50);
 @Override
 public void paintComponent(Graphics g){
 	if(currentState == menu){
@@ -48,10 +49,14 @@ void drawMenuState(Graphics g){
 	
 }
 void drawGameState(Graphics g){
-	
+	 dino.draw(g);
 }
 void drawEndState(Graphics g){
 	g.setColor(Color.RED);
+	g.fillRect(0, 0, DinoRunner.WIDTH, DinoRunner.HEIGHT);
+	g.setFont(titlefont);
+	g.setColor(Color.YELLOW);
+	g.drawString("YOU DIED", 40, 50);
 }
 GamePanels(){
 	titlefont=new Font("Arial", Font.PLAIN,50);
@@ -67,7 +72,7 @@ public void actionPerformed(ActionEvent e) {
 	}else if(currentState == end){
 	    updateEndState();
 	}
-	System.out.println("action");
+	repaint();
 }
 @Override
 public void keyTyped(KeyEvent e) {
@@ -80,6 +85,7 @@ public void keyPressed(KeyEvent e) {
 	if (e.getKeyCode()==KeyEvent.VK_ENTER) {
 	    if (currentState == end) {
 	        currentState = menu;
+	        System.out.println("ENTER");
 	    } else {
 	        currentState++;
 	    }
