@@ -35,6 +35,7 @@ void draw(Graphics g) {
 	for (int i = 0; i < pointy.size(); i++) {
 		spikes j = pointy.get(i);
 		j.draw(g);
+		
 	}
 }
 void purgeObjects() {
