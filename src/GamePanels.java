@@ -17,6 +17,7 @@ Font titlefont;
 int currentState=menu;
 Timer framerate;
 Dinosaur dino =new Dinosaur(200, 295, 50, 50);
+objectManager oj=new objectManager(dino);
 @Override
 public void paintComponent(Graphics g){
 	if(currentState == menu){
@@ -31,7 +32,7 @@ void updateMenuState(){
 	
 }
 void updateGameState(){
-	
+	oj.update();
 }
 void updateEndState(){
 	
@@ -49,7 +50,7 @@ void drawMenuState(Graphics g){
 	
 }
 void drawGameState(Graphics g){
-	 dino.draw(g);
+	oj.draw(g);
 }
 void drawEndState(Graphics g){
 	g.setColor(Color.RED);
@@ -85,7 +86,6 @@ public void keyPressed(KeyEvent e) {
 	if (e.getKeyCode()==KeyEvent.VK_ENTER) {
 	    if (currentState == end) {
 	        currentState = menu;
-	        System.out.println("ENTER");
 	    } else {
 	        currentState++;
 	    }
