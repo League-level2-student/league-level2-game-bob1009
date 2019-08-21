@@ -8,9 +8,12 @@ public class Dinosaur extends DinoGameObject {
 	public static BufferedImage image;
 	public static boolean needImage = true;
 	public static boolean gotImage = false;	
+	int gravity=1;
+	int yspeed=0;
 	Dinosaur(int x, int y, int width, int height) {
 		super(x, y, width, height);
-		speed=10;
+		speed=75;
+		
 		if (needImage) {
 		    loadImage ("Dinosaur.png");
 		}
@@ -38,4 +41,17 @@ void loadImage(String imageFile) {
         needImage = false;
     }
 }
+void update() {
+	yspeed+=gravity;
+	Y+=yspeed;
+	if(Y>295) {
+		Y=295;
+	}
 }
+
+public void jump() {
+   if(Y==295) {	
+	   yspeed=-15;
+   }
+
+}}

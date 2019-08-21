@@ -50,6 +50,8 @@ void drawMenuState(Graphics g){
 	
 }
 void drawGameState(Graphics g){
+	g.setColor(Color.WHITE);
+	g.fillRect(0, 0, DinoRunner.WIDTH, DinoRunner.HEIGHT);
 	oj.draw(g);
 }
 void drawEndState(Graphics g){
@@ -63,6 +65,7 @@ GamePanels(){
 	titlefont=new Font("Arial", Font.PLAIN,50);
 	framerate=new Timer(1000/60,this);
 	framerate.start();
+	 
 }
 @Override
 public void actionPerformed(ActionEvent e) {
@@ -91,7 +94,7 @@ public void keyPressed(KeyEvent e) {
 	    }
 	} 
 	if (e.getKeyCode()==KeyEvent.VK_SPACE) {
-	    System.out.println("SPACE");
+	   dino.jump();
 	}
 }
 @Override
