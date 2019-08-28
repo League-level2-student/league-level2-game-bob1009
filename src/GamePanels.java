@@ -94,12 +94,15 @@ public void keyPressed(KeyEvent e) {
 	    }
 	} 
 	if (e.getKeyCode()==KeyEvent.VK_SPACE) {
-	   dino.jump();
+	 dino.jump();  
+		dino.pressed=true;
 	}
 }
 @Override
 public void keyReleased(KeyEvent e) {
 	// TODO Auto-generated method stub
-	
+	if(e.getKeyCode()==KeyEvent.VK_SPACE) {
+		dino.pressed=false;
+	}
 }
 }
