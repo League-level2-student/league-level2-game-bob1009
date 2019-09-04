@@ -8,7 +8,7 @@ public class objectManager {
 Dinosaur dino;
 boolean isactive=false;
 Random ran=new Random();
-GamePanels panel=new GamePanels();
+int score=0;
 ArrayList<spikes> pointy = new ArrayList<spikes>();
 objectManager(Dinosaur saur){
 	this.dino=saur;
@@ -22,10 +22,11 @@ void addCactus() {
 }
 void update() {
 	dino.update();
+	checkCollision();
 	for (int i = 0; i < pointy.size(); i++) {
 		spikes j = pointy.get(i);
 		j.update();
-		if (j.Y > DinoRunner.WIDTH) {
+		if (j.X> DinoRunner.WIDTH) {
 			j.isActive = false;
 }
 }
@@ -33,15 +34,21 @@ void update() {
 }
 
 	 void checkCollision() {
+		// System.out.println(dino.collisionbox.x+" "+dino.collisionbox.y+" "+dino.collisionbox.width+" "+dino.collisionbox.height);
 			for (int i = 0; i < pointy.size(); i++) {
+				//System.out.println("a';ksflaksf");
 				spikes c = pointy.get(i);
 				if (dino.collisionbox.intersects(c.collisionbox)) {
-					dino.isactive = false;
-					panel.currentState++;
+					dino.isActive = false;
+					System.out.println(";LKA");
+
 				}
 			}
+			
 	}
- 
+ int getscore() {
+				return score;
+			}
 
 
 void draw(Graphics g) {
@@ -54,9 +61,9 @@ void draw(Graphics g) {
 }
 void purgeObjects() {
 	for (int i = 0; i < pointy.size(); i++) {
-	spikes singleAlien = pointy.get(i);
-		if (singleAlien.isActive == false) {
-			pointy.remove(singleAlien);
+	spikes singleCactus = pointy.get(i);
+		if (singleCactus.isActive == false) {
+			pointy.remove(singleCactus);
 		}
 }
 	

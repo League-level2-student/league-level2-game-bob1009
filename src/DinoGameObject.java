@@ -16,6 +16,6 @@ public class DinoGameObject {
 	 collisionbox = new Rectangle(x,y,width,height);
 	 }
 	void  update(){
-		 
+		 collisionbox.setBounds(X, Y, width, height);
 	 }
 }

@@ -11,7 +11,6 @@ public class Dinosaur extends DinoGameObject {
 	int gravity=1;
 	boolean pressed=false;
 	int yspeed=0;
-	boolean isactive=true;
 	Dinosaur(int x, int y, int width, int height) {
 		super(x, y, width, height);
 		speed=75;
@@ -30,7 +29,9 @@ void draw(Graphics g) {
 		} else {
 			g.setColor(Color.BLUE);
 			g.fillRect(X, Y, width, height);
+			
 		}
+		  
 	}
 void loadImage(String imageFile) {
     if (needImage) {
@@ -44,9 +45,11 @@ void loadImage(String imageFile) {
     }
 }
 void update() {
+	super.update();
 	yspeed+=gravity;
 	if(pressed==true) {
 		yspeed-=2;
+		
 		
 	}
 	Y+=yspeed;

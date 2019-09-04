@@ -20,19 +20,22 @@ public class spikes extends DinoGameObject{
 		}
 	}
 	void draw(Graphics g) {
-		 g.setColor(Color.YELLOW);
-	        g.fillRect(X, Y, width, height);
+		
 	        if (gotImage) {;
 	        	g.drawImage(image, X, Y, width, height, null);
 	        } else {
 	        	g.setColor(Color.YELLOW);
 	        	g.fillRect(X, Y, width, height);
 	        }
+	        
+	     
 	}
 	void update() {
+		super.update();
 		X-= speed;
 		if(X<-width) {
 			X=DinoRunner.WIDTH+ram.nextInt(1000);
+			
 		}
 	}
 	void loadImage(String imageFile) {
