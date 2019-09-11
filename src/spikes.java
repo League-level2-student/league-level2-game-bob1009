@@ -35,7 +35,7 @@ public class spikes extends DinoGameObject{
 		super.update();
 		X-= speed;
 		if(X<-width) {
-			X=DinoRunner.WIDTH+ram.nextInt(1000);
+			X=DinoRunner.WIDTH+ram.nextInt(1000)+500;
 			
 		}
 	}

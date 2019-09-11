@@ -5,77 +5,67 @@ import java.util.ArrayList;
 import java.util.Random;
 
 public class objectManager {
-Dinosaur dino;
-boolean isactive=false;
-Random ran=new Random();
-int score=0;
-ArrayList<spikes> pointy = new ArrayList<spikes>();
-objectManager(Dinosaur saur){
-	this.dino=saur;
+	Dinosaur dino;
+	boolean isactive = false;
 	Random ran = new Random();
-	addCactus();
-	addCactus();
-}
-void addCactus() {
-	pointy.add(new spikes(DinoRunner.WIDTH,0,50,50));
-	
-}
-void update() {
-	dino.update();
-	checkCollision();
-	for (int i = 0; i < pointy.size(); i++) {
-		spikes j = pointy.get(i);
-		j.update();
-		if (j.X> DinoRunner.WIDTH) {
-			j.isActive = false;
-}
-}
-	
-}
+	int score = 0;
+	ArrayList<spikes> pointy = new ArrayList<spikes>();
 
-	 void checkCollision() {
-		// System.out.println(dino.collisionbox.x+" "+dino.collisionbox.y+" "+dino.collisionbox.width+" "+dino.collisionbox.height);
-			for (int i = 0; i < pointy.size(); i++) {
-				//System.out.println("a';ksflaksf");
-				spikes c = pointy.get(i);
-				if (dino.collisionbox.intersects(c.collisionbox)) {
-					dino.isActive = false;
-					System.out.println(";LKA");
-
-				}
-			}
-			
+	objectManager(Dinosaur saur) {
+		this.dino = saur;
+		Random ran = new Random();
+		addCactus();
+		addCactus();
 	}
- int getscore() {
-				return score;
-			}
 
+	void addCactus() {
+		pointy.add(new spikes(DinoRunner.WIDTH, 0, 50, 50));
 
-void draw(Graphics g) {
-	dino.draw(g);
-	for (int i = 0; i < pointy.size(); i++) {
-		spikes j = pointy.get(i);
-		j.draw(g);
-		
 	}
-}
-void purgeObjects() {
-	for (int i = 0; i < pointy.size(); i++) {
-	spikes singleCactus = pointy.get(i);
-		if (singleCactus.isActive == false) {
-			pointy.remove(singleCactus);
+
+	void update() {
+		dino.update();
+		for (int i = 0; i < pointy.size(); i++) {
+			spikes j = pointy.get(i);
+			j.update();
+			checkCollision();
 		}
-}
-	
-}
 
-void reset() {
-	System.out.println("yeeeeet");
-	for (int i = 0; i < pointy.size(); i++) {
-		spikes t=pointy.get(i);
-		t.X=DinoRunner.WIDTH;
 	}
-	
-}
-}
 
+	void checkCollision() {
+		for (int i = 0; i < pointy.size(); i++) {
+			spikes c = pointy.get(i);
+			if (dino.collisionbox.intersects(c.collisionbox)) {
+				dino.isActive = false;
+				System.out.println(";LKA");
+
+			}
+		}
+
+	}
+
+	int getscore() {
+		return score;
+	}
+
+	void draw(Graphics g) {
+		dino.draw(g);
+		for (int i = 0; i < pointy.size(); i++) {
+			spikes j = pointy.get(i);
+			j.draw(g);
+
+		}
+	}
+
+	
+	void reset() {
+		System.out.println("yeeeeet");
+		for (int i = 0; i < pointy.size(); i++) {
+			spikes t = pointy.get(i);
+			t.X = DinoRunner.WIDTH;
+		}
+		dino.isActive=true;
+
+	}
+}
