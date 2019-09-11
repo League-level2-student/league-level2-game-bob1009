@@ -19,6 +19,7 @@ int currentState=menu;
 Timer framerate;
 Dinosaur dino =new Dinosaur(200, 295, 50, 50);
 objectManager oj=new objectManager(dino);
+
 @Override
 public void paintComponent(Graphics g){
 	if(currentState == menu){
@@ -99,12 +100,15 @@ public void keyPressed(KeyEvent e) {
 	    if (currentState == end) {
 	        currentState = menu;
 	        dino.isActive=true;
+	        oj.score=0;
+	       oj.reset();
 	    } else {
 	        currentState++;
-	       if(currentState==menu && e.getKeyCode()==KeyEvent.VK_SPACE) {
-	    	   JOptionPane.showMessageDialog(null, "This is an infinite game, press space to jump, if you hit a cactus, you lose.");
+	       
 	       }
 	    }
+	 if(currentState==menu && e.getKeyCode()==KeyEvent.VK_SPACE) {
+	    	   JOptionPane.showMessageDialog(null, "This is an infinite game, press space to jump, if you hit a cactus, you lose.");
 	} 
 	if (e.getKeyCode()==KeyEvent.VK_SPACE) {
 	 dino.jump();  

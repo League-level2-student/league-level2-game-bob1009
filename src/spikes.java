@@ -19,6 +19,7 @@ public class spikes extends DinoGameObject{
 		    loadImage ("cactus.png");
 		}
 	}
+	 
 	void draw(Graphics g) {
 		
 	        if (gotImage) {;
@@ -49,5 +50,5 @@ public class spikes extends DinoGameObject{
 	        needImage = false;
 	    }
 	}
-	
+
 }

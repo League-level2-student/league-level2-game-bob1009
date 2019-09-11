@@ -2,7 +2,7 @@ import java.awt.Rectangle;
 
 public class DinoGameObject {
 	int X;
-	 int Y;
+	  int Y;
 	 int width;
 	 int height;
 	 int speed=0;

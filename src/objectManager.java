@@ -69,6 +69,13 @@ void purgeObjects() {
 	
 }
 
+void reset() {
+	System.out.println("yeeeeet");
+	for (int i = 0; i < pointy.size(); i++) {
+		spikes t=pointy.get(i);
+		t.X=DinoRunner.WIDTH;
+	}
 	
+}
 }
 
