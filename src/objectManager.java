@@ -24,13 +24,14 @@ public class objectManager {
 	}
 
 	void update() {
+		score++;
 		dino.update();
 		for (int i = 0; i < pointy.size(); i++) {
 			spikes j = pointy.get(i);
 			j.update();
-			checkCollision();
+			
 		}
-
+		checkCollision();
 	}
 
 	void checkCollision() {
@@ -38,7 +39,8 @@ public class objectManager {
 			spikes c = pointy.get(i);
 			if (dino.collisionbox.intersects(c.collisionbox)) {
 				dino.isActive = false;
-				System.out.println(";LKA");
+				break;
+				//System.out.println(";LKA");
 
 			}
 		}
@@ -65,7 +67,7 @@ public class objectManager {
 			spikes t = pointy.get(i);
 			t.X = DinoRunner.WIDTH;
 		}
-		dino.isActive=true;
-
+		dino.isActive=true;	
+		score=0;
 	}
 }

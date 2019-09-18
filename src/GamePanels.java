@@ -37,10 +37,10 @@ public class GamePanels extends JPanel implements ActionListener, KeyListener {
 
 	void updateGameState() {
 		oj.update();
-		oj.score = oj.score + 1;
+		
 		if (dino.isActive == false) {
-			currentState=end;
-			System.out.println("flase");
+			currentState++;
+			
 		}
 	}
 
@@ -108,13 +108,13 @@ public class GamePanels extends JPanel implements ActionListener, KeyListener {
 		if (e.getKeyCode() == KeyEvent.VK_ENTER) {
 			if (currentState == menu) {
 				currentState = game;
-				dino.isActive = true;
-				oj.score = 0;
 				oj.reset();
-			} else if (currentState != game) {
+			} else  if(currentState!=game){
 
 				currentState++;
-
+				if(currentState>end) {
+					currentState=menu;
+				}
 			}
 		}
 		else if (currentState == menu && e.getKeyCode() == KeyEvent.VK_SPACE) {
@@ -124,6 +124,10 @@ public class GamePanels extends JPanel implements ActionListener, KeyListener {
 		else if (e.getKeyCode() == KeyEvent.VK_SPACE) {
 			dino.jump();
 			dino.pressed = true;
+			if(dino.Y<349&&e.getKeyCode()==KeyEvent.VK_SPACE) {
+				dino.jump();
+			}
+			
 		}
 	}
 

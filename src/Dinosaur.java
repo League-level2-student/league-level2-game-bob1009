@@ -56,7 +56,7 @@ void update() {
 	if(Y>295) {
 		Y=295;
 	}
-	if (Y<=250) {
+	if (Y<=200) {
 		pressed=false;
 	}
 }
@@ -66,4 +66,9 @@ public void jump() {
 	   yspeed=-5;
    }
 
+}
+public void doublejump() {
+	if(Y==238) {
+		yspeed=-5;
+	}
 }}
